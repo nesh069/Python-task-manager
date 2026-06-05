@@ -15,10 +15,6 @@ def main():
         if choice == "1":
             try:
                 title = input("Enter task title: ")
-                if len(title):
-                    pass
-                else:
-                    raise ValueError("Title cannot be empty.")
                 description = input("Enter task description: ")
                 due_date = input("Enter due date (YYYY-MM-DD): ")
                 add_task(title, description, due_date)
