@@ -26,11 +26,11 @@ def main():
                     print("No tasks available.")
                     continue
                 print("\nCurrent Tasks:")
-                for i, task in enumerate(tasks):
+                for i, task in enumerate(tasks, start=1):
                     status = "Done" if task["completed"] else "Pending"
                     print(f"{i}. {task['title']} [{status}]")
                 index = int(input("Enter task index to mark as complete: "))
-                mark_task_as_complete(index)
+                mark_task_as_complete(index - 1)
             except ValueError as e:
                 print(f"Error: {e}")
             except Exception as e:
