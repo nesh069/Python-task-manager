@@ -5,6 +5,10 @@ from task_manager.validation import validate_task_title, validate_task_descripti
 tasks = []
 
 def add_task(title, description, due_date):
+    if len(title):
+        pass
+    else:
+        raise ValueError("Title must be a non-empty string.")
     validate_task_title(title)
     validate_task_description(description)
     validate_due_date(due_date)
