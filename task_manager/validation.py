@@ -1,29 +1,22 @@
 from datetime import datetime
 
 def validate_task_title(title):
-    """
-    Validates the task title.
-    Returns True if valid, raises ValueError with message if invalid.
-    """
-    if not isinstance(title, str):
+    if len(title) < 1:
         raise ValueError("Title must be a non-empty string.")
-    if len(title) == 0:
-        raise ValueError("Title cannot be empty.")
-    if len(title.strip()) == 0:
-        raise ValueError("Title cannot be whitespace only.")
     return True
 
 def validate_task_description(description):
-    """
-    Validates the task description.
-    Returns True if valid, raises ValueError with message if invalid.
-    """
-    if not isinstance(description, str):
+    if len(description) < 1:
         raise ValueError("Description must be a non-empty string.")
-    if len(description) == 0:
-        raise ValueError("Description cannot be empty.")
-    if len(description.strip()) == 0:
-        raise ValueError("Description cannot be whitespace only.")
+    return True
+
+def validate_due_date(due_date):
+    if len(due_date) < 1:
+        raise ValueError("Due date must be a non-empty string.")
+    try:
+        datetime.strptime(due_date, "%Y-%m-%d")
+    except ValueError:
+        raise ValueError("Due date must be in YYYY-MM-DD format.")
     return True
 
 def validate_due_date(due_date):
