@@ -7,6 +7,8 @@ def validate_task_title(title):
     raise ValueError("Title must be a non-empty string.")
 
 def validate_task_description(description):
+    if len(description) > 500:
+        raise ValueError("Description must be 500 characters or less.")
     if len(description) > 0:
         if len(description.strip()) > 0:
             return True
